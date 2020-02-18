@@ -1,0 +1,48 @@
+{
+    "name":"Magento2 CFML",
+    "version":"0.0.1",
+    "author":"Gary Stanton",
+    "location":"",
+    "homepage":"",
+    "documentation":"",
+    "repository":{
+        "type":"",
+        "URL":""
+    },
+    "bugs":"",
+    "slug":"magento2cfml",
+    "shortDescription":"Magento2 CFML is a CFML (Lucee and ColdFusion) library for interacting with the Magento2 API. Borrows heavily from John Berquist's Stripe CFML project.",
+    "description":"",
+    "instructions":"",
+    "changelog":"",
+    "type":"modules",
+    "keywords":[
+        "magento",
+        "api"
+    ],
+    "private":false,
+    "projectURL":"",
+    "license":[
+        {
+            "type":"MIT",
+            "URL":""
+        }
+    ],
+    "contributors":[],
+    "dependencies":{},
+    "devDependencies":{
+        "testbox":"^3.0.0"
+    },
+    "installPaths":{
+        "testbox":"testbox/"
+    },
+    "scripts":{},
+    "ignore":[
+        "**/.*",
+        "tests"
+    ],
+    "testbox":{
+        "runner":"http://127.0.0.1:45000/tests/runner.cfm",
+        "tests_root":""
+    }
+}
