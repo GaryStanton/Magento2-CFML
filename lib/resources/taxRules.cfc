@@ -27,11 +27,15 @@ component {
                     }
                 }'),
                 defaults.searchCriteria.pageSize = 99999,
-                path: '/taxRules/search'
+                path: '/taxRules/search',
+                hint: 'Search TaxRules - This call returns an array of objects, but detailed information about each object’s attributes might not be included. See https://devdocs.magento.com/codelinks/attributes.html##TaxRuleRepositoryInterface to determine which call to use to get detailed information about all attributes for an object.',
+                docs: 'https://devdocs.magento.com/redoc/2.3/admin-rest-api.html##operation/taxTaxRuleRepositoryV1GetListGet'
             },
 
             'retrieve': {
-                path: '/taxRules/{ruleId}'
+                path: '/taxRules/{ruleId}',
+                hint: 'Get tax rule',
+                docs: 'https://devdocs.magento.com/redoc/2.3/admin-rest-api.html##operation/taxTaxRuleRepositoryV1GetGet'
             }
         }
     };

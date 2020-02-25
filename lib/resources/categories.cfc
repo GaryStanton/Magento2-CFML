@@ -7,7 +7,9 @@ component {
                     "depth":"integer",
                     "rootCategoryId":"integer"
                 }'),
-                path: '/categories'
+                path: '/categories',
+                hint: 'Retrieve list of categories',
+                docs: 'https://devdocs.magento.com/redoc/2.3/admin-rest-api.html##operation/catalogCategoryManagementV1GetTreeGet'
             },
 
             'list': {
@@ -35,11 +37,15 @@ component {
                     }
                 }'),
                 defaults.searchCriteria.pageSize = 25,
-                path: '/categories/list'
+                path: '/categories/list',
+                hint: 'Get category list',
+                docs: 'https://devdocs.magento.com/redoc/2.3/admin-rest-api.html##operation/catalogCategoryListV1GetListGet'
             },
 
             'retrieve': {
-                path: '/categories/{categoryId}'
+                path: '/categories/{categoryId}',
+                hint: 'Get info about category by category id',
+                docs: 'https://devdocs.magento.com/redoc/2.3/admin-rest-api.html##operation/catalogCategoryRepositoryV1GetGet'
             }
         }
     };
