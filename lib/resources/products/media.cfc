@@ -54,6 +54,48 @@ component {
                 path: '/products/{sku}/media/',
                 hint: 'Create new gallery entry.',
                 docs: 'https://devdocs.magento.com/redoc/2.3/admin-rest-api.html##operation/catalogProductAttributeMediaGalleryManagementV1CreatePost'
+            },
+
+            'update': {
+                arguments: deserializeJSON('
+                    {
+                        "entry": {
+                            "media_type": "string",
+                            "label": "string",
+                            "position": "integer",
+                            "disabled": "string",
+                            "types": "array",
+                            "file": "string",
+                            "content": {
+                                "base64_encoded_data": "string",
+                                "type": "string",
+                                "name": "string"
+                            },
+                            "extension_attributes": {
+                                "video_content": {
+                                    "media_type": "string",
+                                    "video_provider": "string",
+                                    "video_url": "string",
+                                    "video_title": "string",
+                                    "video_description": "string",
+                                    "video_metadata": "string"
+                                }
+                            }
+                        }
+                    }
+                '),
+                httpMethod: 'put',
+                multipart: true,
+                path: '/products/{sku}/media/{entryId}',
+                hint: 'Update gallery entry.',
+                docs: 'https://devdocs.magento.com/redoc/2.3/admin-rest-api.html##operation/catalogProductAttributeMediaGalleryManagementV1UpdatePut'
+            },
+
+            'delete': {
+                httpMethod: 'delete',
+                path: '/products/{sku}/media/{entryId}',
+                hint: 'Remove gallery entry.',
+                docs: 'https://devdocs.magento.com/redoc/2.3/admin-rest-api.html##operation/catalogProductAttributeMediaGalleryManagementV1RemoveDelete'
             }
         }
     };
