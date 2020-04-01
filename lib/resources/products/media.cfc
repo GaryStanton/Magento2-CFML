@@ -50,7 +50,7 @@ component {
                     }
                 '),
                 httpMethod: 'post',
-                multipart: true,
+                multipart: false,
                 path: '/products/{sku}/media/',
                 hint: 'Create new gallery entry.',
                 docs: 'https://devdocs.magento.com/redoc/2.3/admin-rest-api.html##operation/catalogProductAttributeMediaGalleryManagementV1CreatePost'
@@ -60,6 +60,7 @@ component {
                 arguments: deserializeJSON('
                     {
                         "entry": {
+                            "id": "integer",
                             "media_type": "string",
                             "label": "string",
                             "position": "integer",
@@ -85,7 +86,7 @@ component {
                     }
                 '),
                 httpMethod: 'put',
-                multipart: true,
+                multipart: false,
                 path: '/products/{sku}/media/{entryId}',
                 hint: 'Update gallery entry.',
                 docs: 'https://devdocs.magento.com/redoc/2.3/admin-rest-api.html##operation/catalogProductAttributeMediaGalleryManagementV1UpdatePut'

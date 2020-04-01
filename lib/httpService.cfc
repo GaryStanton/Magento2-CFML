@@ -9,7 +9,7 @@ component {
         required string httpMethod,
         required string path,
         struct headers = { },
-        array params = [ ],
+        any params = [ ],
         boolean multipart = false,
         numeric timeout = 6000
     ) {
@@ -30,7 +30,12 @@ component {
                 var multipartEntity = multipartFormData( params );
                 headers[ 'Content-Type' ] = multipartEntity.contentType;
                 httpRequest.body = multipartEntity.body;
-            } else {
+            } 
+            else if (isStruct(params)) {
+                headers[ 'Content-Type' ] = 'application/json';
+                httpRequest.body = serializeJSON(params);
+            }
+            else {
                 headers[ 'Content-Type' ] = 'application/x-www-form-urlencoded';
                 httpRequest.body = parseQueryParams( params );
             }

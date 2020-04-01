@@ -88,8 +88,14 @@ component {
         var headerData = parsers.headers.parse( sources.headers, methodMetadata );
         ignoredArgs.append( headerData.headerArgNames, true );
 
-        // params
-        var params = parsers.arguments.parse( sources.params, methodMetadata.arguments, ignoredArgs );
+        // params - Magento API likes payloads to be in JSON, so we're not flattening the parsed params and passing a struct to the makeRequest funciton
+        var params = '';
+        if(ListFindNoCase('PUT,POST', methodMetadata.httpmethod) && !methodMetadata.multipart) {
+            params = parsers.arguments.parse( sources.params, methodMetadata.arguments, ignoredArgs, false );
+        }
+        else {
+            params = parsers.arguments.parse( sources.params, methodMetadata.arguments, ignoredArgs );
+        }
 
         var requestStart = getTickCount();
 
@@ -195,5 +201,4 @@ component {
 
         return paths;
     }
-
 }

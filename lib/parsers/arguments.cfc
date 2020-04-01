@@ -27,10 +27,11 @@ component {
         return this;
     }
 
-    public array function parse(
+    public any function parse(
         required struct argCollection,
         required struct methodArgumentMetdata,
-        required array ignoredArgs
+        required array ignoredArgs,
+        boolean flattenArgs = true
     ) {
         var filteredArgs = { };
         var argKeys = structKeyArray( argCollection );
@@ -47,10 +48,10 @@ component {
         }
         var parsed = parseStruct( filteredArgs, methodArgumentMetdata );
 
-        return flatten( parsed );
+        return Arguments.flattenArgs ? flatten( parsed ) : parsed;
     }
 
-    private struct function parseStruct( required any args, required struct methodArgumentMetdata ) {
+    public struct function parseStruct( required any args, required struct methodArgumentMetdata ) {
         var parsed = { };
 
         for ( var key in structKeyArray( methodArgumentMetdata ) ) {
