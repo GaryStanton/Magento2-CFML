@@ -30,7 +30,7 @@ component {
                 parse( response[ key ] );
             } else if ( isArray( response[ key ] ) ) {
                 for ( var item in response[ key ] ) {
-                    if ( isStruct( item ) ) {
+                    if ( isDefined('item') && isStruct( item ) ) {
                         parse( item );
                     }
                 }
