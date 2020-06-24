@@ -47,36 +47,37 @@ component {
             filteredArgs[ argKey ] = argCollection[ argKey ];
         }
         var parsed = parseStruct( filteredArgs, methodArgumentMetdata );
-
         return Arguments.flattenArgs ? flatten( parsed ) : parsed;
     }
 
     public struct function parseStruct( required any args, required struct methodArgumentMetdata ) {
         var parsed = { };
 
-        for ( var key in structKeyArray( methodArgumentMetdata ) ) {
-            if ( isNull( args[ key ] ) ) continue;
+        for ( var key in structKeyArray( methodArgumentMetdata ) ) { // Loop through all the keys we might expect in this method
+            if (!ArrayFindNoCase(structKeyArray(args), key)) continue; // Skip the key if it's not present in the supplied arguments
 
-            var val = args[ key ];
             var argType = parseType( key, methodArgumentMetdata );
-
-            if ( isSimpleValue( val ) ) {
-                parsed[ key ] = parseSimpleValue( val, argType._simple );
-            } else if ( isBinary( val ) ) {
-                parsed[ key ] = val;
-            } else if ( isArray( val ) ) {
-                parsed[ key ] = [ ];
-                for ( var item in val ) {
-                    if ( isSimpleValue( item ) ) {
-                        parsed[ key ].append( parseSimpleValue( item, argType._simple ) );
-                    } else {
-                        parsed[ key ].append( parseStruct( item, argType._complex ) );
+            if (isNull(args[ key ])) { // If this is a null value, include it as such as we probably want to parse it in the JSON
+                parsed[ key ] = nullValue();
+            } 
+            else {
+                var val = args[ key ];
+                if ( isSimpleValue( val ) ) {
+                    parsed[ key ] = parseSimpleValue( val, argType._simple );
+                } else if ( isBinary( val ) ) {
+                    parsed[ key ] = val;
+                } else if ( isArray( val ) ) {
+                    parsed[ key ] = [ ];
+                    for ( var item in val ) {
+                        if ( isSimpleValue( item ) ) {
+                            parsed[ key ].append( parseSimpleValue( item, argType._simple ) );
+                        } else {
+                            parsed[ key ].append( parseStruct( item, argType._complex ) );
+                        }
                     }
+                } else if ( isStruct( val ) ) {
+                    parsed[ key ] = parseStruct( val, argType._complex );
                 }
-            } else if ( isStruct( val ) ) {
-
-                parsed[ key ] = parseStruct( val, argType._complex );
-
             }
         }
 

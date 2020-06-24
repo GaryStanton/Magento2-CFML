@@ -46,6 +46,67 @@ component {
                 path: '/categories/{categoryId}',
                 hint: 'Get info about category by category id',
                 docs: 'https://devdocs.magento.com/redoc/2.3/admin-rest-api.html##operation/catalogCategoryRepositoryV1GetGet'
+            },
+
+            'create': {
+                arguments: deserializeJSON('
+                    {
+                        "category": {
+                            "id": "integer",
+                            "parent_id": "integer",
+                            "name": "string",
+                            "is_active": true,
+                            "position": "integer",
+                            "level": "integer",
+                            "children": "string",
+                            "created_at": "string",
+                            "updated_at": "string",
+                            "path": "string",
+                            "available_sort_by": "array",
+                            "include_in_menu": "boolean",
+                            "extension_attributes": "struct",
+                            "custom_attributes": "array"
+                        }
+                    }
+                '),
+                httpMethod: 'post',
+                multipart: false,
+                path: '/categories/',
+                hint: 'Create category.',
+                docs: 'https://devdocs.magento.com/redoc/2.3/admin-rest-api.html##operation/catalogCategoryRepositoryV1SavePost'
+            },
+
+            'update': {
+                arguments: deserializeJSON('
+                    {
+                        "category": {
+                            "id": "integer",
+                            "parent_id": "integer",
+                            "name": "string",
+                            "is_active": true,
+                            "position": "integer",
+                            "level": "integer",
+                            "children": "string",
+                            "created_at": "string",
+                            "updated_at": "string",
+                            "path": "string",
+                            "available_sort_by": "array",
+                            "include_in_menu": "boolean",
+                            "extension_attributes": "struct",
+                            "custom_attributes": [
+                                {
+                                    "attribute_code" : "string",
+                                    "value" : "string"
+                                }
+                            ]
+                        }
+                    }
+                '),
+                httpMethod: 'put',
+                multipart: false,
+                path: '/categories/{id}',
+                hint: 'Update category.',
+                docs: 'https://devdocs.magento.com/redoc/2.3/admin-rest-api.html##operation/catalogCategoryRepositoryV1SavePut'
             }
         }
     };

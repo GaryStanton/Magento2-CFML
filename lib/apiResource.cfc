@@ -20,6 +20,7 @@ component {
     }
 
     public struct function onMissingMethod( missingMethodName, missingMethodArguments ) {
+
         if ( !metadata.methods.keyExists( missingMethodName ) ) {
             var message = '`magento2.#resourceName#.#missingMethodName#()` is not a valid method for `magento2.#resourceName#`. Available methods are #metadata.methodNameList#.';
             throw( message );

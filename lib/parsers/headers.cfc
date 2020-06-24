@@ -2,10 +2,6 @@ component {
 
     variables.headerKeys = {
         'api_key': 'Authorization',
-        'api_version': 'Stripe-Version',
-        'stripe_version': 'Stripe-Version',
-        'idempotency_key': 'Idempotency-Key',
-        'stripe_account': 'Stripe-Account'
     };
 
     public any function init( required any config ) {

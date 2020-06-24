@@ -51,6 +51,7 @@ component {
     private struct function exec( required struct httpRequest ) {
         var result = '';
         httpRequest.attrColl.result = 'result';
+
         cfhttp(attributeCollection=httpRequest.attrColl) {
             for ( var header in httpRequest.headers ) {
                 cfhttpparam(type="header", name=header.name, value=header.value);
