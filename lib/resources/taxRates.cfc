@@ -5,7 +5,7 @@ component {
             'retrieve': {
                 path: '/taxRates/{rateId}',
                 hint: 'Get tax rate',
-                docs: 'https://devdocs.magento.com/redoc/2.3/admin-rest-api.html##operation/taxTaxRateRepositoryV1GetGet'
+                docs: 'https://magento.redoc.ly/2.3.6-admin/##operation/taxTaxRateRepositoryV1GetGet'
             },
 
             'search': {
@@ -35,7 +35,7 @@ component {
                 defaults.searchCriteria.pageSize = 99999,
                 path: '/taxRates/search',
                 hint: 'Search TaxRates This call returns an array of objects, but detailed information about each object’s attributes might not be included. See https://devdocs.magento.com/codelinks/attributes.html##TaxRateRepositoryInterface to determine which call to use to get detailed information about all attributes for an object.',
-                docs: 'https://devdocs.magento.com/redoc/2.3/admin-rest-api.html##operation/taxTaxRateRepositoryV1GetListGet'
+                docs: 'https://magento.redoc.ly/2.3.6-admin/##operation/taxTaxRateRepositoryV1GetListGet'
             }
         }
     };

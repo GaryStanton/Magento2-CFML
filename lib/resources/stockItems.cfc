@@ -5,7 +5,7 @@ component {
             'retrieve': {
                 path: '/stockItems/{productSku}',
                 hint: '',
-                docs: 'https://devdocs.magento.com/redoc/2.3/admin-rest-api.html##operation/catalogInventoryStockRegistryV1GetStockItemBySkuGet'
+                docs: 'https://magento.redoc.ly/2.3.6-admin/##operation/catalogInventoryStockRegistryV1GetStockItemBySkuGet'
             },
 
             'lowStock' : {
@@ -17,7 +17,7 @@ component {
                 }'),
                 path: '/stockItems/lowStock',
                 hint: 'Retrieves a list of SKU''s with low inventory qty',
-                docs: 'https://devdocs.magento.com/redoc/2.3/admin-rest-api.html##operation/catalogInventoryStockRegistryV1GetLowStockItemsGet'
+                docs: 'https://magento.redoc.ly/2.3.6-admin/##operation/catalogInventoryStockRegistryV1GetLowStockItemsGet'
             }
         }
     };

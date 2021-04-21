@@ -29,19 +29,19 @@ component {
                 path: '/categories/attributes',
                 defaults.searchCriteria.pageSize = 99999,
                 hint: 'Retrieve all attributes for entity type',
-                docs: 'https://devdocs.magento.com/redoc/2.3/admin-rest-api.html##operation/catalogCategoryAttributeRepositoryV1GetListGet'
+                docs: 'https://magento.redoc.ly/2.3.6-admin/##operation/catalogCategoryAttributeRepositoryV1GetListGet'
             },
 
             'retrieve': {
                 path: '/categories/attributes/{attributeCode}',
                 hint: 'Retrieve specific attribute',
-                docs: 'https://devdocs.magento.com/redoc/2.3/admin-rest-api.html##operation/catalogCategoryAttributeRepositoryV1GetGet'
+                docs: 'https://magento.redoc.ly/2.3.6-admin/##operation/catalogCategoryAttributeRepositoryV1GetGet'
             },
 
             'options': {
                 path: '/categories/attributes/{attributeCode}/options',
                 hint: 'Retrieve list of attribute options',
-                docs: 'https://devdocs.magento.com/redoc/2.3/admin-rest-api.html##operation/catalogCategoryAttributeOptionManagementV1GetItemsGet'
+                docs: 'https://magento.redoc.ly/2.3.6-admin/##operation/catalogCategoryAttributeOptionManagementV1GetItemsGet'
             },
         }
     };

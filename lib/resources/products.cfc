@@ -29,13 +29,13 @@ component {
                 defaults.searchCriteria.pageSize = 25,
                 path: '/products',
                 hint: 'Get product list',
-                docs: 'https://devdocs.magento.com/redoc/2.3/admin-rest-api.html##operation/catalogProductRepositoryV1GetListGet'
+                docs: 'https://magento.redoc.ly/2.3.6-admin/##operation/catalogProductRepositoryV1GetListGet'
             },
 
             'retrieve': {
                 path: '/products/{sku}',
                 hint: 'Get info about product by product SKU',
-                docs: 'https://devdocs.magento.com/redoc/2.3/admin-rest-api.html##operation/catalogProductRepositoryV1GetGet'
+                docs: 'https://magento.redoc.ly/2.3.6-admin/##operation/catalogProductRepositoryV1GetGet'
             }
         }
     };

@@ -29,13 +29,13 @@ component {
                 path: '/orders/items',
                 defaults.searchCriteria.pageSize = 99999,
                 hint: 'Lists order items that match specified search criteria. This call returns an array of objects, but detailed information about each object’s attributes might not be included. See https://devdocs.magento.com/codelinks/attributes.html##OrderItemRepositoryInterface to determine which call to use to get detailed information about all attributes for an object.',
-                docs: 'https://devdocs.magento.com/redoc/2.3/admin-rest-api.html##operation/salesOrderItemRepositoryV1GetListGet'
+                docs: 'https://magento.redoc.ly/2.3.6-admin/##operation/salesOrderItemRepositoryV1GetListGet'
             },
 
             'retrieve': {
                 path: '/orders/items/{id}',
                 hint: 'Loads a specified order item.',
-                docs: 'https://devdocs.magento.com/redoc/2.3/admin-rest-api.html##operation/salesOrderItemRepositoryV1GetGet'
+                docs: 'https://magento.redoc.ly/2.3.6-admin/##operation/salesOrderItemRepositoryV1GetGet'
             }
         }
     };
