@@ -109,20 +109,17 @@ component {
 
         var response = { };
         try {
-        response[ 'duration' ] = getTickCount() - requestStart;
-        response[ 'requestId' ] = structKeyExists(rawResponse.responseheader, 'X-Request-Id') ? rawResponse.responseheader[ 'X-Request-Id' ] : '';
-        response[ 'headers' ] = rawResponse.responseheader;
-        response[ 'status' ] = listFirst( rawResponse.statuscode, ' ' );
-        response[ 'content' ] = deserializeJSON( rawResponse.filecontent );
+            response[ 'duration' ] = getTickCount() - requestStart;
+            response[ 'requestId' ] = structKeyExists(rawResponse.responseheader, 'X-Request-Id') ? rawResponse.responseheader[ 'X-Request-Id' ] : '';
+            response[ 'headers' ] = rawResponse.responseheader;
+            response[ 'status' ] = listFirst( rawResponse.statuscode, ' ' );
+            response[ 'content' ] = deserializeJSON( rawResponse.filecontent );
 
-        parsers.response.parse( response.content );
+            parsers.response.parse( response.content );
         }
 
         catch( any e ) {
-            writeDump(rawResponse);
-            writeDump(Arguments);
-            writeDump(e);
-            abort;
+            response[ 'content' ] = rawResponse.fileContent;
         }
         return response;
     }
